@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Gau Amrutam — Premium Bilona Cow Ghee</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      background: #fdf8ef;
+      color: #1f2f14;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .hero-bg {
+      background:
+        radial-gradient(circle at top left, rgba(255, 196, 0, 0.25), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(255, 150, 0, 0.2), transparent 30%),
+        linear-gradient(to bottom, #fff8ec, #f8efd8);
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .gold {
+      background: linear-gradient(to right, #9c6f00, #ffcf40);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glow {
+      box-shadow: 0 0 60px rgba(255, 196, 0, 0.25);
+    }
+
+    .floating {
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px)
+      }
+
+      50% {
+        transform: translateY(-20px)
+      }
+
+      100% {
+        transform: translateY(0px)
+      }
+    }
+
+    .product {
+      transition: 0.5s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-14px) scale(1.02);
+    }
+
+    .liquid {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 200, 0, 0.35), transparent 70%);
+      filter: blur(70px);
+    }
+
+    .hero-title {
+      line-height: 0.95;
+    }
+
+    .marquee {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .marquee-content {
+      display: inline-flex;
+      gap: 60px;
+      animation: scroll 18s linear infinite;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    .btn-hover:hover {
+      transform: scale(1.05);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav
+    class="fixed top-0 left-0 w-full z-50 px-8 lg:px-16 py-6 flex justify-between items-center glass">
+
+    <div>
+      <h1 class="text-5xl font-bold text-[#173214]">
+        Gau <span class="gold">Amrutam</span>
+      </h1>
+
+      <p class="uppercase tracking-[6px] text-xs text-[#425b2d] mt-1">
+        Pure • Traditional • Divine
+      </p>
+    </div>
+
+    <div class="hidden lg:flex gap-10 text-[#173214] font-medium">
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+
+    <div class="flex items-center gap-4">
+
+      <button onclick="openCart()"
+        class="relative bg-[#173214] hover:bg-[#10250f] text-white px-6 py-4 rounded-full glow transition-all btn-hover">
+
+        🛒 Cart
+
+        <span id="cartCount"
+          class="absolute -top-2 -right-2 bg-yellow-400 text-black w-6 h-6 rounded-full text-sm flex items-center justify-center font-bold">
+          0
+        </span>
+
+      </button>
+
+      <button onclick="scrollToProducts()"
+        class="bg-[#173214] hover:bg-[#10250f] text-white px-8 py-4 rounded-full glow transition-all btn-hover">
+        Order Now
+      </button>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section
+    class="hero-bg min-h-screen flex items-center relative overflow-hidden pt-40 px-8 lg:px-20">
+
+    <div class="liquid top-0 left-0"></div>
+    <div class="liquid bottom-0 right-0"></div>
+
+    <div
+      class="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto relative z-10">
+
+      <div>
+
+        <p class="uppercase tracking-[8px] text-[#a17700] font-semibold mb-6">
+          Luxury Bilona Cow Ghee
+        </p>
+
+        <h1
+          class="hero-title text-7xl lg:text-9xl font-bold text-[#173214]">
+          Tradition
+          <span class="gold">In Every</span>
+          Spoon
+        </h1>
+
+        <p
+          class="mt-10 text-lg text-[#5c6b56] leading-relaxed max-w-2xl">
+          Experience handcrafted A2 Bilona Ghee made from indigenous desi
+          cow milk.
+        </p>
+
+      </div>
+
+      <div class="relative flex justify-center">
+
+        <div
+          class="absolute w-[650px] h-[650px] rounded-full bg-yellow-300 blur-[140px] opacity-25">
+        </div>
+
+        <img src="kanrej1.jpg"
+          class="floating relative z-10 rounded-[40px] shadow-2xl border-[12px] border-white max-w-full lg:w-[620px] glow" />
+
+      </div>
+
+    </div>
+
+  </section>
+
+ <!-- TRUST BAR -->
+
+  <section class="bg-[#173214] text-white py-5 marquee">
+
+    <div class="marquee-content text-sm uppercase tracking-[5px]">
+
+      <span>
+        Pure Bilona Ghee ✦ No Preservatives ✦ Ancient Ayurveda ✦ Free Shipping ✦
+        Trusted By Families ✦ Premium Desi Cow Milk ✦
+      </span>
+
+      <span>
+        Pure Bilona Ghee ✦ No Preservatives ✦ Ancient Ayurveda ✦ Free Shipping ✦
+        Trusted By Families ✦ Premium Desi Cow Milk ✦
+      </span>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about"
+    class="py-32 px-8 lg:px-20 bg-[#fffaf2]">
+
+    <div
+      class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+
+      <div class="relative">
+
+        <img src="hero2.jpg"
+          class="rounded-[40px] shadow-2xl relative z-10" />
+
+      </div>
+
+      <div>
+
+        <p
+          class="uppercase tracking-[7px] text-[#a17700] font-semibold mb-6">
+          Our Heritage
+        </p>
+
+        <h2
+          class="text-7xl font-bold text-[#173214] leading-none">
+          Ancient
+          <span class="gold">Ayurvedic</span>
+          Purity
+        </h2>
+
+        <p
+          class="mt-10 text-lg leading-relaxed text-[#5f6d59]">
+          At Gau Amrutam, every jar of ghee carries the soul of Indian
+          villages. We use milk from indigenous cows and prepare ghee
+          through the sacred Bilona process.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+ <!-- PRODUCTS -->
+
+  <section id="products"
+    class="py-32 px-8 lg:px-20 bg-[#10210f] text-white">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-24">
+
+        <p
+          class="uppercase tracking-[7px] text-yellow-300 font-semibold mb-5">
+          Premium Collection
+        </p>
+
+        <h2 class="text-7xl font-bold leading-none">
+          Signature
+          <span class="gold">Products</span>
+        </h2>
+
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12">
+
+        <!-- PRODUCT 1 -->
+
+        <div
+          class="product bg-white/5 backdrop-blur-xl rounded-[40px] overflow-hidden border border-white/10 shadow-2xl">
+
+          <img src="desi.jpg"
+            class="h-[500px] w-full object-cover" />
+
+          <div class="p-10">
+
+            <div class="flex justify-between items-center">
+
+              <h3 class="text-5xl font-bold">
+                Desi Cow Ghee
+              </h3>
+
+              <span
+                class="bg-green-400 text-black px-5 py-2 rounded-full text-sm font-semibold">
+                Organic
+              </span>
+
+            </div>
+
+            <div class="flex justify-between items-center mt-12">
+
+              <div>
+                <p class="text-gray-400">
+                  500 ML Premium Jar
+                </p>
+
+                <h4 class="text-6xl font-bold gold">
+                  ₹1450
+                </h4>
+              </div>
+
+              <button
+                onclick="addToCart('Desi Cow Ghee',1450)"
+                class="bg-yellow-400 text-black px-8 py-5 rounded-full font-semibold hover:scale-105 transition-all shadow-2xl">
+
+                Add To Cart
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- PRODUCT 2 -->
+
+        <div
+          class="product bg-white/5 backdrop-blur-xl rounded-[40px] overflow-hidden border border-white/10 shadow-2xl">
+
+          <img src="village.jpg"
+            class="h-[500px] w-full object-cover" />
+
+          <div class="p-10">
+
+            <div class="flex justify-between items-center">
+
+              <h3 class="text-5xl font-bold">
+                Village Bilona Ghee
+              </h3>
+
+              <span
+                class="bg-yellow-400 text-black px-5 py-2 rounded-full text-sm font-semibold">
+                Best Seller
+              </span>
+
+            </div>
+
+            <div class="flex justify-between items-center mt-12">
+
+              <div>
+                <p class="text-gray-400">
+                  1 Litre Luxury Pack
+                </p>
+
+                <h4 class="text-6xl font-bold gold">
+                  ₹2099
+                </h4>
+              </div>
+
+              <button
+                onclick="addToCart('Village Bilona Ghee',2099)"
+                class="bg-yellow-400 text-black px-8 py-5 rounded-full font-semibold hover:scale-105 transition-all shadow-2xl">
+
+                Add To Cart
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+<!-- ADD THIS SECTION AFTER PRODUCTS SECTION -->
+
+<!-- BENEFITS SECTION -->
+
+<section id="benefits"
+class="py-32 px-8 lg:px-20 bg-[#fff8ec]">
+
+<div class="max-w-7xl mx-auto text-center">
+
+<p
+class="uppercase tracking-[7px] text-[#a17700] font-semibold mb-6">
+Health Benefits
+</p>
+
+<h2
+class="text-7xl font-bold text-[#173214] leading-none">
+Wellness In
+<span class="gold">Every Spoon</span>
+</h2>
+
+<div class="grid lg:grid-cols-3 gap-10 mt-24">
+
+<div class="bg-white rounded-[40px] p-12 shadow-2xl">
+
+<div class="text-7xl mb-8">🌿</div>
+
+<h3 class="text-4xl font-bold text-[#173214]">
+Boosts Immunity
+</h3>
+
+<p class="mt-5 text-[#66725f] leading-relaxed">
+Rich in antioxidants and healthy fats that strengthen immunity naturally.
+</p>
+
+</div>
+
+<div
+class="bg-[#173214] rounded-[40px] p-12 shadow-2xl text-white">
+
+<div class="text-7xl mb-8">🧠</div>
+
+<h3 class="text-4xl font-bold">
+Brain Wellness
+</h3>
+
+<p class="mt-5 text-gray-300 leading-relaxed">
+Healthy fats support memory and cognitive function naturally.
+</p>
+
+</div>
+
+<div class="bg-white rounded-[40px] p-12 shadow-2xl">
+
+<div class="text-7xl mb-8">✨</div>
+
+<h3 class="text-4xl font-bold text-[#173214]">
+Ayurvedic Purity
+</h3>
+
+<p class="mt-5 text-[#66725f] leading-relaxed">
+Prepared using sacred Bilona methods trusted for centuries.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- REVIEWS SECTION -->
+
+<section id="reviews"
+class="py-32 px-8 lg:px-20 bg-[#10210f] text-white">
+
+<div class="max-w-7xl mx-auto text-center">
+
+<p
+class="uppercase tracking-[7px] text-yellow-300 font-semibold mb-5">
+Testimonials
+</p>
+
+<h2 class="text-7xl font-bold leading-none">
+Loved Across
+<span class="gold">India</span>
+</h2>
+
+<div class="grid lg:grid-cols-3 gap-10 mt-24">
+
+<div class="glass rounded-[40px] p-10">
+
+<p class="text-xl leading-relaxed text-gray-300 italic">
+“The aroma instantly reminded me of homemade village ghee.”
+</p>
+
+<h3 class="text-3xl font-bold mt-10">
+Priya Sharma
+</h3>
+
+</div>
+
+<div class="glass rounded-[40px] p-10">
+
+<p class="text-xl leading-relaxed text-gray-300 italic">
+“Premium quality and luxurious packaging. Worth every rupee.”
+</p>
+
+<h3 class="text-3xl font-bold mt-10">
+Rahul Mehta
+</h3>
+
+</div>
+
+<div class="glass rounded-[40px] p-10">
+
+<p class="text-xl leading-relaxed text-gray-300 italic">
+“Finally found pure Bilona ghee without preservatives.”
+</p>
+
+<h3 class="text-3xl font-bold mt-10">
+Anjali Verma
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TRUST BAR -->
+
+<section class="bg-[#173214] text-white py-5 marquee">
+
+<div class="marquee-content text-sm uppercase tracking-[5px]">
+
+<span>
+Pure Bilona Ghee ✦ No Preservatives ✦ Ancient Ayurveda ✦ Free Shipping ✦
+Trusted By Families ✦ Premium Desi Cow Milk ✦
+</span>
+
+<span>
+Pure Bilona Ghee ✦ No Preservatives ✦ Ancient Ayurveda ✦ Free Shipping ✦
+Trusted By Families ✦ Premium Desi Cow Milk ✦
+</span>
+
+</div>
+
+</section>
+
+<!-- PREMIUM FOOTER -->
+
+<footer class="bg-[#0b1609] text-white py-24 px-8 lg:px-20">
+
+<div class="max-w-7xl mx-auto text-center">
+
+<h2 class="text-7xl font-bold">
+Gau <span class="gold">Amrutam</span>
+</h2>
+
+<p
+class="mt-8 text-gray-400 max-w-2xl mx-auto leading-relaxed">
+Luxury Bilona Cow Ghee handcrafted with Ayurveda,
+tradition, and purity.
+</p>
+
+<div class="flex justify-center gap-6 mt-12 flex-wrap">
+
+<a href="#products">
+
+<button
+class="bg-yellow-400 text-black px-10 py-5 rounded-full font-semibold hover:scale-105 transition-all shadow-2xl">
+
+Shop Now
+
+</button>
+
+<a href="https://wa.me/918306456963"
+target="_blank">
+
+<button
+class="border border-white/20 px-10 py-5 rounded-full hover:bg-white hover:text-black transition-all">
+
+WhatsApp Us
+
+</button>
+
+</a>
+
+</div>
+
+<div class="grid lg:grid-cols-3 gap-10 mt-24 text-left">
+
+<div>
+
+<h3 class="text-3xl font-bold mb-6">
+About
+</h3>
+
+<p class="text-gray-400 leading-relaxed">
+Authentic A2 Bilona Ghee made using ancient Ayurvedic methods from indigenous cows.
+</p>
+
+</div>
+
+<div>
+
+<h3 class="text-3xl font-bold mb-6">
+Quick Links
+</h3>
+
+<div class="space-y-3 text-gray-400">
+
+<p><a href="#about">About Us</a></p>
+<p><a href="#products">Products</a></p>
+<p><a href="#benefits">Benefits</a></p>
+<p><a href="#reviews">Reviews</a></p>
+
+</div>
+
+</div>
+
+<div>
+
+<h3 class="text-3xl font-bold mb-6">
+Contact
+</h3>
+
+<div class="space-y-3 text-gray-400">
+
+<p>📞 +91 8306456963</p>
+<p>✉ neeluajay9698@gmail.com</p>
+<p>📍 India</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-20 border-t border-white/10 pt-10 text-gray-500">
+
+© 2026 Gau Amrutam — Crafted with purity and tradition.
+
+</div>
+
+</div>
+
+</footer>
+  <!-- CART DRAWER -->
+
+  <div id="cartDrawer"
+    class="fixed top-0 right-[-100%] w-full md:w-[450px] h-full bg-white z-[9999] shadow-2xl transition-all duration-500 overflow-y-auto">
+
+    <div class="p-8 border-b flex justify-between items-center">
+
+      <h2 class="text-4xl font-bold text-[#173214]">
+        Your Cart
+      </h2>
+
+      <button onclick="closeCart()"
+        class="text-3xl font-bold text-[#173214]">
+        ×
+      </button>
+
+    </div>
+
+    <div id="cartItems" class="p-8 space-y-6">
+
+      <p class="text-gray-500">
+        Your cart is empty.
+      </p>
+
+    </div>
+
+    <div class="p-8 border-t">
+
+      <div class="flex justify-between items-center mb-6">
+
+        <h3 class="text-2xl font-bold text-[#173214]">
+          Total
+        </h3>
+
+        <h3 id="cartTotal"
+          class="text-3xl font-bold text-[#173214]">
+          ₹0
+        </h3>
+
+      </div>
+
+      <button onclick="checkoutCart()"
+        class="w-full bg-[#173214] hover:bg-[#10250f] text-white py-5 rounded-full text-lg font-semibold transition-all">
+
+        Checkout Now
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    let cart = [];
+
+    function scrollToProducts() {
+      document.getElementById('products').scrollIntoView({
+        behavior: 'smooth'
+      })
+    }
+
+    function openCart() {
+      document.getElementById('cartDrawer').style.right = '0';
+    }
+
+    function closeCart() {
+      document.getElementById('cartDrawer').style.right = '-100%';
+    }
+
+    function addToCart(name, price) {
+
+      const existing = cart.find(item => item.name === name);
+
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          name,
+          price,
+          quantity: 1
+        });
+      }
+
+      updateCart();
+
+      openCart();
+
+    }
+
+    function updateCart() {
+
+      const cartItems = document.getElementById('cartItems');
+
+      const cartCount = document.getElementById('cartCount');
+
+      const cartTotal = document.getElementById('cartTotal');
+
+      cartItems.innerHTML = '';
+
+      let total = 0;
+      let count = 0;
+
+      cart.forEach((item, index) => {
+
+        total += item.price * item.quantity;
+
+        count += item.quantity;
+
+        cartItems.innerHTML += `
+
+<div class="bg-[#f8f3e7] p-5 rounded-[25px]">
+
+<div class="flex justify-between items-start">
+
+<div>
+
+<h3 class="text-xl font-bold text-[#173214]">
+${item.name}
+</h3>
+
+<p class="text-gray-500 mt-2">
+₹${item.price}
+</p>
+
+</div>
+
+<button
+onclick="removeItem(${index})"
+class="text-red-500 text-xl">
+🗑
+</button>
+
+</div>
+
+<div class="flex items-center gap-4 mt-5">
+
+<button
+onclick="changeQty(${index},-1)"
+class="w-10 h-10 rounded-full bg-[#173214] text-white">
+-
+</button>
+
+<span class="text-xl font-bold">
+${item.quantity}
+</span>
+
+<button
+onclick="changeQty(${index},1)"
+class="w-10 h-10 rounded-full bg-[#173214] text-white">
++
+</button>
+
+</div>
+
+</div>
+
+`;
+
+      });
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+<p class="text-gray-500">
+Your cart is empty.
+</p>
+`;
+
+      }
+
+      cartTotal.innerText = `₹${total}`;
+
+      cartCount.innerText = count;
+
+    }
+
+    function changeQty(index, change) {
+
+      cart[index].quantity += change;
+
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+
+      updateCart();
+
+    }
+
+    function removeItem(index) {
+
+      cart.splice(index, 1);
+
+      updateCart();
+
+    }
+
+    function checkoutCart() {
+
+      if (cart.length === 0) {
+
+        alert('Your cart is empty');
+
+        return;
+
+      }
+
+      let total = 0;
+
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+      });
+
+      payNow('Gau Amrutam Cart Checkout', total);
+
+    }
+
+    function payNow(productName, amount) {
+
+      var options = {
+
+        "key": "rzp_test_Sn7yWv0nW6sgBE",
+
+        "amount": amount * 100,
+
+        "currency": "INR",
+
+        "name": "Gau Amrutam",
+
+        "description": productName,
+
+        "image": "kanrej1.jpg",
+
+        "handler": function(response) {
+
+          alert(
+            "Payment Successful!\n\nPayment ID: " +
+            response.razorpay_payment_id
+          );
+
+          cart = [];
+
+          updateCart();
+
+          closeCart();
+
+        },
+
+        "theme": {
+          "color": "#173214"
+        }
+
+      };
+
+      var rzp1 = new Razorpay(options);
+
+      rzp1.open();
+
+    }
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    gsap.from('.hero-title', {
+      y: 120,
+      opacity: 0,
+      duration: 1.4,
+      ease: 'power4.out'
+    })
+
+    gsap.from('.hero-bg img', {
+      scale: 0.8,
+      opacity: 0,
+      duration: 1.6,
+      ease: 'power4.out'
+    })
+
+    gsap.utils.toArray('.product').forEach((card, i) => {
+
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%'
+        },
+        y: 120,
+        opacity: 0,
+        duration: 1,
+        delay: i * 0.15,
+        ease: 'power4.out'
+      })
+
+    })
+
+  </script>
+
+</body>
+
+</html>
