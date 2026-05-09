@@ -137,48 +137,122 @@
 
   <!-- NAVBAR -->
 
-  <nav
-    class="fixed top-0 left-0 w-full z-50 px-8 lg:px-16 py-6 flex justify-between items-center glass">
+  <!-- NAVBAR -->
 
-    <div>
-      <h1 class="text-5xl font-bold text-[#173214]">
-        Gau <span class="gold">Amrutam</span>
-      </h1>
+<nav
+class="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 lg:px-16 py-4 flex justify-between items-center glass">
 
-      <p class="uppercase tracking-[6px] text-xs text-[#425b2d] mt-1">
-        Pure • Traditional • Divine
-      </p>
-    </div>
+<!-- LOGO -->
 
-    <div class="hidden md:flex gap-10 text-[#173214] font-medium">
-      <a href="#about">About</a>
-      <a href="#products">Products</a>
-      <a href="#benefits">Benefits</a>
-      <a href="#reviews">Reviews</a>
-    </div>
+<div>
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#173214]">
+Gau <span class="gold">Amrutam</span>
+</h1>
 
-    <div class="flex items-center gap-4">
+<p class="uppercase tracking-[4px] text-[10px] sm:text-xs text-[#425b2d] mt-1">
+Pure • Traditional • Divine
+</p>
+</div>
 
-      <button onclick="openCart()"
-        class="relative bg-[#173214] hover:bg-[#10250f] text-white px-6 py-4 rounded-full glow transition-all btn-hover">
+<!-- DESKTOP MENU -->
 
-        🛒 Cart
+<div class="hidden lg:flex gap-10 text-[#173214] font-medium">
 
-        <span id="cartCount"
-          class="absolute -top-2 -right-2 bg-yellow-400 text-black w-6 h-6 rounded-full text-sm flex items-center justify-center font-bold">
-          0
-        </span>
+<a href="#about">About</a>
+<a href="#products">Products</a>
+<a href="#benefits">Benefits</a>
+<a href="#reviews">Reviews</a>
 
-      </button>
+</div>
 
-      <button onclick="scrollToProducts()"
-        class="bg-[#173214] hover:bg-[#10250f] text-white px-8 py-4 rounded-full glow transition-all btn-hover">
-        Order Now
-      </button>
+<!-- RIGHT SIDE -->
 
-    </div>
+<div class="flex items-center gap-3">
 
-  </nav>
+<!-- CART -->
+
+<button onclick="openCart()"
+class="relative bg-[#173214] hover:bg-[#10250f] text-white px-4 sm:px-6 py-3 rounded-full glow transition-all btn-hover">
+
+🛒
+
+<span id="cartCount"
+class="absolute -top-2 -right-2 bg-yellow-400 text-black w-5 h-5 rounded-full text-xs flex items-center justify-center font-bold">
+0
+</span>
+
+</button>
+
+<!-- ORDER BUTTON -->
+
+<button onclick="scrollToProducts()"
+class="hidden sm:block bg-[#173214] hover:bg-[#10250f] text-white px-6 py-3 rounded-full glow transition-all btn-hover">
+
+Order Now
+
+</button>
+
+<!-- MOBILE MENU BUTTON -->
+
+<button
+onclick="toggleMenu()"
+class="lg:hidden bg-[#173214] text-white px-4 py-3 rounded-full">
+
+☰
+
+</button>
+
+</div>
+
+</nav>
+
+<!-- MOBILE MENU -->
+
+<div id="mobileMenu"
+class="fixed top-0 right-[-100%] w-[280px] h-full bg-[#173214] z-[99999] transition-all duration-500 shadow-2xl p-8">
+
+<div class="flex justify-between items-center mb-12">
+
+<h2 class="text-3xl font-bold text-white">
+Menu
+</h2>
+
+<button
+onclick="toggleMenu()"
+class="text-white text-3xl">
+
+×
+
+</button>
+
+</div>
+
+<div class="flex flex-col gap-8 text-white text-xl">
+
+<a href="#about" onclick="toggleMenu()">
+About
+</a>
+
+<a href="#products" onclick="toggleMenu()">
+Products
+</a>
+
+<a href="#benefits" onclick="toggleMenu()">
+Benefits
+</a>
+
+<a href="#reviews" onclick="toggleMenu()">
+Reviews
+</a>
+
+<a href="https://wa.me/918306456963"
+target="_blank">
+WhatsApp
+</a>
+
+</div>
+
+</div>
 
   <!-- HERO -->
 
@@ -956,6 +1030,21 @@ Your cart is empty.
       })
 
     })
+function toggleMenu(){
+
+const menu = document.getElementById('mobileMenu');
+
+if(menu.style.right === '0px'){
+
+menu.style.right = '-100%';
+
+}else{
+
+menu.style.right = '0';
+
+}
+
+}
 
   </script>
 
